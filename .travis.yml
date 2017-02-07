@@ -1,0 +1,18 @@
+language: elixir
+elixir:
+- 1.4
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: 9.6.1
+before_script:
+- psql -c 'create database homeautomation_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: kdH3lXbtug79EjsxKKlrFdK/kwXWiheuv7mJiV2czUzZ8ipmnFf1AziCGu3Vfs4UzEf416qNtF3I3qSN+AvRT35nLHVtjm3Hd0TGSIndwA/34fKq68PA7BSFRsRCXTcQ89fH4dCOFS4c+pjqUYY8g7T78mJd70ClVYrtbjnXfPNAKV0onrsMv8wMQVAwsugZBFI+xPgz0qzL4s/mVhedoBpPYqE33YFmEYyBsdjPar1qPHmB6p1K9sbyPU2N7Jb09gORZOx2wAEZGyPiUL/Wpc2AwWd6GgzGuBuJnr+wcDOWVO4z4UiR7o6ZXp2+SZZy5eK3dEPTB09uPqXiTwxvn35ZEOKmU1iANoYwBgXNY7o2IluPhyKsfP9c0oWWXjp+96ZsQN0idC3tpXN6uEuD5zmcw4supn00gsPxgcW5s8g7e6B0pKar7vuDaaueqqXipzjjHEn42WGUuSl2zEw5HcxfSR/hmg5985j7JhIDH26Pbu2olGxg6tH715E+go57SP1vpTmIphjV/sVeObX7smfEp2DyaatTT4cWwjR0OxdPEnmTMehpcoa5NorrFV3GJEsoOaxlkt812gb7VtxiSkWbdWu01olblilfo58dALxGLxxiTBd3W6E4xDc3pu1/Ad+h6eKdIkJVnH32mD+2nIwLreyo7Z19yFXte7D2fUU=
+  app: home-automation-backend
+  on:
+    repo: boschr/home-automation-phoenix
+    branch: develop
