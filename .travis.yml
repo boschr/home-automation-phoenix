@@ -7,7 +7,7 @@ sudo: false
 addons:
   postgresql: 9.6.1
 before_script:
-- psql -c 'create database homeautomation_test;' -U postgres
+- psql -c 'create database home_automation_test;' -U postgres
 deploy:
   provider: heroku
   api_key:
